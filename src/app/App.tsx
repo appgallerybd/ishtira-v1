@@ -224,7 +224,12 @@ export default function App() {
   }
   function useProduct(product: SavedProduct) {
     setProductName(product.name); setUnit(product.defaultUnit ?? 'টি'); setEstimatedPrice(product.defaultEstimatedPrice == null ? '' : String(product.defaultEstimatedPrice));
-    setActiveListId(activeListId); setTab('home');
+    if (!activeListId) {
+      const firstOpen = lists.find(list => !list.completedAt) ?? lists[0];
+      if (firstOpen) setActiveListId(firstOpen.id);
+      else { setTab('create'); setError(settings.language === 'bn' ? 'আগে একটি বাজারের তালিকা তৈরি করুন, তারপর পণ্য যোগ করুন।' : 'Create a shopping list first, then add this product.'); return; }
+    }
+    setTab('home');
   }
   function currency(value: number) {
     return new Intl.NumberFormat(settings.language === 'bn' ? 'bn-BD' : 'en-BD', { style: 'currency', currency: settings.currency, maximumFractionDigits: 2, numberingSystem: settings.useBengaliDigits && settings.language === 'bn' ? 'beng' : 'latn' }).format(value);
