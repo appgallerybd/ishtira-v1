@@ -1,0 +1,10 @@
+{
+  "name": "Ishtira — ইশতিরা",
+  "short_name": "Ishtira",
+  "description": "Smart shopping list and expense tracker",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f8f6",
+  "theme_color": "#087f5b",
+  "icons": [{ "src": "/icons/ishtira.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
