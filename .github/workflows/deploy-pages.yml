@@ -29,7 +29,7 @@ jobs:
       - run: npm install
       - run: npm run typecheck
       - run: npm test
-      - run: npm run build
+      - run: VITE_DEPLOY_TARGET=github-pages npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
