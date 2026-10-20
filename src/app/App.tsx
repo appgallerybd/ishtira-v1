@@ -253,7 +253,7 @@ export default function App() {
 
   return <div className="app-shell">
     <header className="topbar">
-      <button className="brand" onClick={() => { setTab('home'); setActiveListId(null); }} aria-label={t.home}><span className="brand-mark"><ShoppingBasket size={23}/></span><span><strong>Ishtira</strong><small>ইশতিরা</small></span></button>
+      <button className="brand" onClick={() => { setTab('home'); setActiveListId(null); }} aria-label={t.home}><span className="brand-mark"><ShoppingBasket size={23}/></span><span><strong>Ishtira</strong><small>ইশতিরা · Smart shopping</small></span></button>
       <div className="top-actions"><span className={online ? 'network-pill' : 'network-pill offline'}><span/> {online ? t.online : t.offline}</span><button className="icon-button" aria-label={t.language} title={t.language} onClick={() => setSettings(s => ({ ...s, language: s.language === 'bn' ? 'en' : 'bn' }))}><Globe2 size={19}/><small>{settings.language.toUpperCase()}</small></button><button className="icon-button" aria-label={t.theme} title={t.theme} onClick={() => setSettings(s => ({ ...s, theme: s.theme === 'light' ? 'dark' : s.theme === 'dark' ? 'system' : 'light' }))}>{settings.theme === 'light' ? <Sun size={19}/> : settings.theme === 'dark' ? <Moon size={19}/> : <Settings2 size={19}/>}</button></div>
     </header>
     <main className="page">
