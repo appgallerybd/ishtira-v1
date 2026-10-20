@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: process.env.VITE_DEPLOY_TARGET === 'github-pages' ? '/ishtira-v1/' : '/',
   plugins: [
     react(),
     tailwindcss(),
@@ -18,7 +19,7 @@ export default defineConfig({
         background_color: '#f5f8f6',
         display: 'standalone',
         start_url: '/',
-        icons: [{ src: '/icons/ishtira.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }]
+        icons: [{ src: 'icons/ishtira.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' }]
       },
       workbox: { navigateFallback: '/index.html', globPatterns: ['**/*.{js,css,html,svg,webmanifest}'] }
     })
