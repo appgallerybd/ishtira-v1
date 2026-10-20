@@ -17,7 +17,6 @@ const statusLabels: Record<Language, Record<PurchaseStatus, string>> = {
   bn: { pending: 'বাকি', purchased: 'কেনা হয়েছে', skipped: 'বাদ' },
   en: { pending: 'Pending', purchased: 'Purchased', skipped: 'Skipped' }
 };
-const safeText = (value: unknown, max = 200) => typeof value === 'string' ? value.trim().slice(0, max) : '';
 function validBackup(value: unknown): value is { schemaVersion: number; lists: ShoppingList[]; items: ShoppingItem[]; products: SavedProduct[] } {
   if (!value || typeof value !== 'object') return false;
   const data = value as Record<string, unknown>;
